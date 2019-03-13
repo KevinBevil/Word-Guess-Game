@@ -28,6 +28,10 @@ function replaceIndexWithCorrectGuess(someString, index, x) {
    return stringWithAddedLetter;
 }
 
+function validate(strValue) {
+   var objRegExp = /^[a-z]+$/;
+   return objRegExp.test(strValue);
+}
 
 // function that creates same number of spaces as letters in chosen word
 function wordsToSpaces(someString) {
@@ -57,15 +61,16 @@ wordElem.textContent = wordsToSpaces(wordChosen);
 document.onkeyup = function (event) {
    var userGuess = event.key;
    // if the character guessed is contained in the string
-   if (wordChosen.includes(userGuess)) {
-      var correctGuessIndex = wordChosen.indexOf(userGuess);
-      var updatedAnswer = replaceIndexWithCorrectGuess(wordChosen, correctGuessIndex, userGuess);
-      wordElem.textContent = updatedAnswer;
-   } else {
-      stringOfRejectedLetters = stringOfRejectedLetters + userGuess;
-      guessedLettersElem.textContent = stringOfRejectedLetters;
+   if (validate(userGuess)) {
+      if (wordChosen.includes(userGuess)) {
+         var correctGuessIndex = wordChosen.indexOf(userGuess);
+         var updatedAnswer = replaceIndexWithCorrectGuess(wordChosen, correctGuessIndex, userGuess);
+         wordElem.textContent = updatedAnswer;
+      } else {
+         stringOfRejectedLetters = stringOfRejectedLetters + ' ' + userGuess;
+         guessedLettersElem.textContent = stringOfRejectedLetters;
+      }
    }
-
 
 
 
