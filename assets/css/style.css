@@ -29,14 +29,14 @@ h2 {
    background-color: rgba(193, 200, 204, 0.459);
    font-family: 'Dr Sugiyama', cursive;
    font-size: 70px;
-   color: rgb(8, 38, 53);
+   color: rgba(36, 54, 63, 0.76);
    border: 5px solid #7a382891;
 }
 button {
    box-shadow: 2px 2px 5px #336B8770;
    margin: 0 0.5em 0.4em 0;
    text-align: center;
-   font-size: 130%;
+   font-size: 30px;
    background: #336B8790;
    color: rgb(250, 245, 237);
    width: 110px;
@@ -51,7 +51,7 @@ button {
 button:hover {
    margin: 0 0.5em 0.5em 0;
    text-align: center;
-   font-size: 135%;
+   font-size: 32px;
    background: rgba(144, 175, 197, 0);
    color: rgba(252, 248, 15, 0.623);
    border-radius: 5px;
