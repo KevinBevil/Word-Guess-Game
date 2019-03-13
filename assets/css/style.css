@@ -32,6 +32,21 @@ h2 {
    color: rgba(36, 54, 63, 0.76);
    border: 5px solid #7a382891;
 }
+h3 {
+   font-size: 40px;
+   letter-spacing: 8px;
+   font-weight: bold;
+}
+h4 {
+   font-family: 'Dr Sugiyama', cursive;
+   font-size: 52px;
+   color: rgba(251, 255, 0, 0.774);
+}
+span {
+   font-family: 'Dr Sugiyama', cursive;
+   font-size: 52px;
+   color: rgba(251, 255, 0, 0.774);
+}
 button {
    box-shadow: 2px 2px 5px #336B8770;
    margin: 0 0.5em 0.4em 0;
