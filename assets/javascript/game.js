@@ -65,14 +65,15 @@ document.onkeyup = function (event) {
    var gameWon = false;
    // variable to hold user's alpha guess
    var userGuess = event.key;
-   if (validate(userGuess) && arr_secretWord.indexOf(userGuess) === -1) {
-      stringOfRejectedLetters = stringOfRejectedLetters + ' ' + userGuess;
+   var userGuessLowerCase = userGuess.toLowerCase();
+   if (validate(userGuessLowerCase) && arr_secretWord.indexOf(userGuessLowerCase) === -1) {
+      stringOfRejectedLetters = stringOfRejectedLetters + ' ' + userGuessLowerCase;
       guessedLettersElem.textContent = stringOfRejectedLetters;
       guessesLeft--;
-   } else if (validate(userGuess)) {
-      while (arr_secretWord.indexOf(userGuess) !== -1) {
-         var index = arr_secretWord.indexOf(userGuess);
-         arr_secretWordToUnderscores[index] = userGuess;
+   } else if (validate(userGuessLowerCase)) {
+      while (arr_secretWord.indexOf(userGuessLowerCase) !== -1) {
+         var index = arr_secretWord.indexOf(userGuessLowerCase);
+         arr_secretWordToUnderscores[index] = userGuessLowerCase;
          arr_secretWord[index] = '_';
       }
       
