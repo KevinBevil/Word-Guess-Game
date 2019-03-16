@@ -48,6 +48,11 @@ span {
    color: rgba(251, 255, 0, 0.774);
    font-weight: 200;
 }
+#game-over {
+   font-family: 'Dr Sugiyama', cursive;
+   font-size: 52px;
+   color: rgba(251, 255, 0, 0.774);
+}
 button {
    box-shadow: 2px 2px 5px #336B8770;
    margin: 0 0.5em 0.4em 0;
