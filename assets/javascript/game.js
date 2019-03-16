@@ -36,9 +36,7 @@ var arr_secretWordToUnderscores = secretWordToUnderscores.split(' ');
 
 var stringOfRejectedLetters = '';
 
-// console.log("secretWord: " + secretWord + "secretWordToUnderscores: " +
-// secretWordToUnderscores + "arr_secretWord: " + arr_secretWord +
-// "arr_secretWordToUnderscores: " + arr_secretWordToUnderscores);
+
 
 // hooks for wins, losses, secret word, number of guesses left, and letters
 // already guessed
@@ -54,19 +52,28 @@ guessesLeftElem.textContent = 15;
 
 
 
-var winCounter = 0;
-var lossCounter = 0;
+
 var guessesLeft = 15;
+
+if (typeof (Storage) !== "undefined") {
+   document.getElementById("wins").innerHTML = localStorage.wins;
+   document.getElementById("losses").innerHTML = localStorage.losses;
+   winCounter = parseInt(localStorage.wins);
+   lossCounter = parseInt(localStorage.losses);
+} else {
+   var winCounter = 0;
+   var lossCounter = 0;
+}
 
 document.onkeyup = function (event) {
    // simple wins and losses counters
    // variable to hold user's alpha guess
    var userGuess = event.key;
    var userGuessLowerCase = userGuess.toLowerCase();
-   if (validate(userGuessLowerCase) && 
-   arr_secretWord.indexOf(userGuessLowerCase) === -1) {
+   if (validate(userGuessLowerCase) &&
+      arr_secretWord.indexOf(userGuessLowerCase) === -1) {
       stringOfRejectedLetters = stringOfRejectedLetters + ' ' +
-       userGuessLowerCase;
+         userGuessLowerCase;
       guessedLettersElem.textContent = stringOfRejectedLetters;
       guessesLeft--;
    } else if (validate(userGuessLowerCase)) {
@@ -82,7 +89,7 @@ document.onkeyup = function (event) {
       lossCounter++;
       gameOverUpdate.textContent = "Game Over.  Reload page to play again.";
       document.getElementById("display-none-upon-losing").style.display =
-       "none";
+         "none";
    }
    if (arr_secretWordToUnderscores.indexOf('_') === -1) {
       winCounter++;
@@ -90,6 +97,8 @@ document.onkeyup = function (event) {
    }
    lossElem.textContent = lossCounter;
    winsElem.textContent = winCounter;
-   document.cookie = 'cookieWins=winCounter';
-   document.cookie = 'cookieLosses=lossCounter';
+
+   localStorage.setItem("wins", winCounter);
+   localStorage.setItem("losses", lossCounter);
+
 }
