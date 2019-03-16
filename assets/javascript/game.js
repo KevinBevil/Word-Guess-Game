@@ -50,20 +50,21 @@ var gameOverUpdate = document.getElementById('game-over');
 
 guessesLeftElem.textContent = 15;
 
-
-
+var winCounter = 0;
+var lossCounter = 0;
 var gameOver = false;
 var guessesLeft = 15;
 
 if (typeof (Storage) !== "undefined") {
+   winCounter = localStorage.getItem('wins');
+   if (winCounter == null) winCounter = 0;
+   lossCounter = localStorage.getItem('losses');
+   if (lossCounter == null) lossCounter = 0;
    document.getElementById("wins").innerHTML = localStorage.wins;
    document.getElementById("losses").innerHTML = localStorage.losses;
    winCounter = parseInt(localStorage.wins);
    lossCounter = parseInt(localStorage.losses);
-} else {
-   var winCounter = 0;
-   var lossCounter = 0;
-}
+} 
 console.log(secretWord);
 document.onkeyup = function (event) {
    // simple wins and losses counters
