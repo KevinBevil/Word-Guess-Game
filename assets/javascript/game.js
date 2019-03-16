@@ -64,7 +64,7 @@ if (typeof (Storage) !== "undefined") {
    var winCounter = 0;
    var lossCounter = 0;
 }
-
+console.log(secretWord);
 document.onkeyup = function (event) {
    // simple wins and losses counters
    // variable to hold user's alpha guess
@@ -93,7 +93,9 @@ document.onkeyup = function (event) {
    }
    if (arr_secretWordToUnderscores.indexOf('_') === -1) {
       winCounter++;
-
+      gameOverUpdate.textContent = "You win!  Reload page to play again.";
+      document.getElementById("display-none-upon-losing").style.display =
+         "none";
    }
    lossElem.textContent = lossCounter;
    winsElem.textContent = winCounter;
