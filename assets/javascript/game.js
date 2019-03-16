@@ -19,7 +19,7 @@ function playNewWord(someArray) {
 
 // validates that user's guess is alpha
 function validate(strValue) {
-   var objRegExp = /^[a-z]+$/;
+   var objRegExp = /^[a-z ]+$/;
    return objRegExp.test(strValue);
 }
 
@@ -52,7 +52,7 @@ guessesLeftElem.textContent = 15;
 
 
 
-
+var gameOver = false;
 var guessesLeft = 15;
 
 if (typeof (Storage) !== "undefined") {
@@ -68,15 +68,17 @@ console.log(secretWord);
 document.onkeyup = function (event) {
    // simple wins and losses counters
    // variable to hold user's alpha guess
+   if (gameOver == true) return;
    var userGuess = event.key;
+   console.log(userGuess);
    var userGuessLowerCase = userGuess.toLowerCase();
-   if (validate(userGuessLowerCase) &&
+   if (validate(userGuess) &&
       arr_secretWord.indexOf(userGuessLowerCase) === -1) {
       stringOfRejectedLetters = stringOfRejectedLetters + ' ' +
          userGuessLowerCase;
       guessedLettersElem.textContent = stringOfRejectedLetters;
       guessesLeft--;
-   } else if (validate(userGuessLowerCase)) {
+   } else if (validate(userGuess)) {
       while (arr_secretWord.indexOf(userGuessLowerCase) !== -1) {
          var index = arr_secretWord.indexOf(userGuessLowerCase);
          arr_secretWordToUnderscores[index] = userGuessLowerCase;
@@ -90,12 +92,14 @@ document.onkeyup = function (event) {
       gameOverUpdate.textContent = "Game Over.  Reload page to play again.";
       document.getElementById("display-none-upon-losing").style.display =
          "none";
+      gameOver = true;
    }
    if (arr_secretWordToUnderscores.indexOf('_') === -1) {
       winCounter++;
       gameOverUpdate.textContent = "You win!  Reload page to play again.";
       document.getElementById("display-none-upon-losing").style.display =
          "none";
+      gameOver = true;
    }
    lossElem.textContent = lossCounter;
    winsElem.textContent = winCounter;
