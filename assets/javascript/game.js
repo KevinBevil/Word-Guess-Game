@@ -10,10 +10,7 @@ var instrumentArray = ['violin', 'viola', 'cello', 'bass', 'flute', 'piccolo',
    'snare drum', 'bass drum', 'cymbals', 'tambourine', 'triangle', 'xylophone',
    'glockenspiel', 'chimes', 'marimba', 'vibraphone'];
 
-// simple wins and losses counters
-var winCounter = 0;
-var lossCounter = 0;
-var guessesLeft = 15;
+
 
 // function to choose random word from instrumentArray
 function playNewWord(someArray) {
@@ -55,19 +52,21 @@ var gameOverUpdate = document.getElementById('game-over');
 
 guessesLeftElem.textContent = 15;
 
-function switchElemsAtGivenIndex(wordArray, underscoreArray, index) {
-   underscoreArray[index] = wordArray[index];
-   wordArray[index] = '_';
-}
 
+
+var winCounter = 0;
+var lossCounter = 0;
+var guessesLeft = 15;
 
 document.onkeyup = function (event) {
-   var gameWon = false;
+   // simple wins and losses counters
    // variable to hold user's alpha guess
    var userGuess = event.key;
    var userGuessLowerCase = userGuess.toLowerCase();
-   if (validate(userGuessLowerCase) && arr_secretWord.indexOf(userGuessLowerCase) === -1) {
-      stringOfRejectedLetters = stringOfRejectedLetters + ' ' + userGuessLowerCase;
+   if (validate(userGuessLowerCase) && 
+   arr_secretWord.indexOf(userGuessLowerCase) === -1) {
+      stringOfRejectedLetters = stringOfRejectedLetters + ' ' +
+       userGuessLowerCase;
       guessedLettersElem.textContent = stringOfRejectedLetters;
       guessesLeft--;
    } else if (validate(userGuessLowerCase)) {
@@ -76,13 +75,21 @@ document.onkeyup = function (event) {
          arr_secretWordToUnderscores[index] = userGuessLowerCase;
          arr_secretWord[index] = '_';
       }
-      
    }
    secretWordElem.textContent = arr_secretWordToUnderscores.join(" ");
    guessesLeftElem.textContent = guessesLeft;
    if (guessesLeft === 0) {
       lossCounter++;
       gameOverUpdate.textContent = "Game Over.  Reload page to play again.";
-      document.getElementById("display-none-upon-losing").style.display="none";
+      document.getElementById("display-none-upon-losing").style.display =
+       "none";
    }
+   if (arr_secretWordToUnderscores.indexOf('_') === -1) {
+      winCounter++;
+
+   }
+   lossElem.textContent = lossCounter;
+   winsElem.textContent = winCounter;
+   document.cookie = 'cookieWins=winCounter';
+   document.cookie = 'cookieLosses=lossCounter';
 }
