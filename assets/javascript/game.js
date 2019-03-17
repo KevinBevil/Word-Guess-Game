@@ -64,10 +64,10 @@ var guessesLeft = 15;
 // }
 var winCounter = 0;
 var lossCounter = 0;
-if (!isNaN(localStorage.getItem('wins')) {
+if (!isNaN(localStorage.getItem('wins'))) {
    winCounter = parseInt(localStorage.getItem('wins'));
 }
-if (!isNaN(localStorage.getItem('wins')) {
+if (!isNaN(localStorage.getItem('wins'))) {
    lossCounter = parseInt(localStorage.getItem('losses'));
 }
 console.log(winCounter);
