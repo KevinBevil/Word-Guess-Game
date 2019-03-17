@@ -63,6 +63,7 @@ if (typeof (Storage) !== "undefined") {
    document.getElementById("wins").innerHTML = localStorage.wins;
    document.getElementById("losses").innerHTML = localStorage.losses;
    console.log(typeof parseInt(localStorage.wins));
+   console.log(localStorage.wins);
    winCounter = parseInt(localStorage.wins);
    lossCounter = parseInt(localStorage.losses);
 } 
