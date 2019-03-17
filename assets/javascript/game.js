@@ -75,6 +75,8 @@ var guessesLeft = 15;
 // }
 var winCounter = localStorage.getItem('wins');
 var lossCounter = localStorage.getItem('losses');
+lossElem.textContent = lossCounter;
+winsElem.textContent = winCounter;
 
 console.log(secretWord);
 document.onkeyup = function (event) {
@@ -113,8 +115,8 @@ document.onkeyup = function (event) {
          "none";
       gameOver = true;
    }
-   lossElem.textContent = lossCounter;
-   winsElem.textContent = winCounter;
+   // lossElem.textContent = lossCounter;
+   // winsElem.textContent = winCounter;
 
    localStorage.setItem("wins", winCounter);
    localStorage.setItem("losses", lossCounter);
