@@ -50,23 +50,32 @@ var gameOverUpdate = document.getElementById('game-over');
 
 guessesLeftElem.textContent = 15;
 
-var winCounter = 0;
-var lossCounter = 0;
 var gameOver = false;
 var guessesLeft = 15;
+// if (typeof localStorage.wins !== "undefined" || typeof localStorage.wins !==
+//  "NaN") {
+//    winCounter = localStorage.getItem('wins');
+//    if (winCounter == null) winCounter = 0;
+//    lossCounter = localStorage.getItem('losses');
+//    if (lossCounter == null) lossCounter = 0;
+//    document.getElementById("wins").innerHTML = localStorage.wins;
+//    document.getElementById("losses").innerHTML = localStorage.losses;
+//    winCounter = parseInt(localStorage.wins);
+//    lossCounter = parseInt(localStorage.losses);
+// } else {
+//    winCounter = 0;
+//    lossCounter = 0;
+// }
 
-if (typeof (Storage) !== "undefined") {
-   winCounter = localStorage.getItem('wins');
-   if (winCounter == null) winCounter = 0;
-   lossCounter = localStorage.getItem('losses');
-   if (lossCounter == null) lossCounter = 0;
-   document.getElementById("wins").innerHTML = localStorage.wins;
-   document.getElementById("losses").innerHTML = localStorage.losses;
-   console.log(typeof parseInt(localStorage.wins));
-   console.log(localStorage.wins);
-   winCounter = parseInt(localStorage.wins);
-   lossCounter = parseInt(localStorage.losses);
-} 
+// if (typeof localStorage.getItem('wins') == string) {
+//    winCounter = parseInt(localStorage.getItem('wins'));
+// }
+// if (typeof localStorage.getItem('losses') == string) {
+//    lossCounter = parseInt(localStorage.getItem('losses'));
+// }
+var winCounter = localStorage.getItem('wins');
+var lossCounter = localStorage.getItem('losses');
+
 console.log(secretWord);
 document.onkeyup = function (event) {
    // simple wins and losses counters
