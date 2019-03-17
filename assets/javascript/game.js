@@ -70,6 +70,9 @@ if (!isNaN(localStorage.getItem('wins')) {
 if (!isNaN(localStorage.getItem('wins')) {
    lossCounter = parseInt(localStorage.getItem('losses'));
 }
+console.log(winCounter);
+console.log(lossCounter);
+
 // var winCounter = localStorage.getItem('wins');
 // var lossCounter = localStorage.getItem('losses');
 lossElem.textContent = lossCounter;
