@@ -48,20 +48,8 @@ guessesLeftElem.textContent = 15;
 
 var gameOver = false;
 var guessesLeft = 15;
-// if (typeof localStorage.wins !== "undefined" || typeof localStorage.wins !==
-//  "NaN") {
-//    winCounter = localStorage.getItem('wins');
-//    if (winCounter == null) winCounter = 0;
-//    lossCounter = localStorage.getItem('losses');
-//    if (lossCounter == null) lossCounter = 0;
-//    document.getElementById("wins").innerHTML = localStorage.wins;
-//    document.getElementById("losses").innerHTML = localStorage.losses;
-//    winCounter = parseInt(localStorage.wins);
-//    lossCounter = parseInt(localStorage.losses);
-// } else {
-//    winCounter = 0;
-//    lossCounter = 0;
-// }
+
+
 var winCounter = 0;
 var lossCounter = 0;
 if (!isNaN(localStorage.getItem('wins'))) {
@@ -69,6 +57,10 @@ if (!isNaN(localStorage.getItem('wins'))) {
 }
 if (!isNaN(localStorage.getItem('wins'))) {
    lossCounter = localStorage.getItem('losses');
+}
+if (winCounter === null && lossCounter === null) {
+   winCounter = 0;
+   lossCounter = 0;
 }
 console.log(winCounter);
 console.log(lossCounter);
