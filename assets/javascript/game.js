@@ -62,15 +62,16 @@ var guessesLeft = 15;
 //    winCounter = 0;
 //    lossCounter = 0;
 // }
-
-// if (typeof localStorage.getItem('wins') == string) {
-//    winCounter = parseInt(localStorage.getItem('wins'));
-// }
-// if (typeof localStorage.getItem('losses') == string) {
-//    lossCounter = parseInt(localStorage.getItem('losses'));
-// }
-var winCounter = localStorage.getItem('wins');
-var lossCounter = localStorage.getItem('losses');
+var winCounter = 0;
+var lossCounter = 0;
+if (!isNaN(localStorage.getItem('wins')) {
+   winCounter = parseInt(localStorage.getItem('wins'));
+}
+if (!isNaN(localStorage.getItem('wins')) {
+   lossCounter = parseInt(localStorage.getItem('losses'));
+}
+// var winCounter = localStorage.getItem('wins');
+// var lossCounter = localStorage.getItem('losses');
 lossElem.textContent = lossCounter;
 winsElem.textContent = winCounter;
 
