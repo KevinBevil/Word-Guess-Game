@@ -1,7 +1,4 @@
-// keeps track of number of wins
-var winCounter;
-// keeps track of number of losses
-var lossCounter;
+
 // array to hold all the names of the orchestral instruments
 var instrumentArray = ['violin', 'viola', 'cello', 'bass', 'flute', 'piccolo',
    'oboe', 'english horn', 'clarinet', 'bass', 'clarinet', 'bassoon',
