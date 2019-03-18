@@ -1,4 +1,3 @@
-
 // array to hold all the names of the orchestral instruments
 var instrumentArray = ['violin', 'viola', 'cello', 'bass', 'flute', 'piccolo',
    'oboe', 'english horn', 'clarinet', 'bass', 'clarinet', 'bassoon',
@@ -95,16 +94,20 @@ document.onkeyup = function (event) {
    guessesLeftElem.textContent = guessesLeft;
    if (guessesLeft === 0) {
       lossCounter++;
-      gameOverUpdate.textContent = "Game Over.  Reload page to play again.";
+      lossElem.textContent = lossCounter;
+      gameOverUpdate.textContent = "Game Over.  Reload page for next word.";
       document.getElementById("display-none-upon-losing").style.display =
          "none";
+      document.getElementById("reload-button").style.display = "";
       gameOver = true;
    }
    if (arr_secretWordToUnderscores.indexOf('_') === -1) {
       winCounter++;
+      winsElem.textContent = winCounter;
       gameOverUpdate.textContent = "You win!  Reload page to play again.";
       document.getElementById("display-none-upon-losing").style.display =
          "none";
+      document.getElementById("reload-button").style.display = "";
       gameOver = true;
    }
    // lossElem.textContent = lossCounter;

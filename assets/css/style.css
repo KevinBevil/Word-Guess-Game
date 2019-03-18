@@ -69,6 +69,10 @@ span {
    font-size: 52px;
    color: rgba(251, 255, 0, 0.774);
 }
+#reload-button {
+   font-size: 15px;
+
+}
 button {
    box-shadow: 2px 2px 5px #336B8770;
    margin: 0 0.5em 0.4em 0;
@@ -108,4 +112,3 @@ button:active {
    -moz-transition-duration: 0.5s;
 }
 
-.usedButton {}
