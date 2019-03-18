@@ -95,7 +95,7 @@ document.onkeyup = function (event) {
    if (guessesLeft === 0) {
       lossCounter++;
       lossElem.textContent = lossCounter;
-      gameOverUpdate.textContent = "Game Over.  Reload page for next word.";
+      gameOverUpdate.textContent = "Sorry!  Click button for next word.";
       document.getElementById("display-none-upon-losing").style.display =
          "none";
       document.getElementById("reload-button").style.display = "";
@@ -104,7 +104,7 @@ document.onkeyup = function (event) {
    if (arr_secretWordToUnderscores.indexOf('_') === -1) {
       winCounter++;
       winsElem.textContent = winCounter;
-      gameOverUpdate.textContent = "You win!  Reload page to play again.";
+      gameOverUpdate.textContent = "You win!  Click button for next word.";
       document.getElementById("display-none-upon-losing").style.display =
          "none";
       document.getElementById("reload-button").style.display = "";
